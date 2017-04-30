@@ -49,7 +49,7 @@ test:
 #
 production:
   <<: *default
-
+  adapter: postgresql
   host: <%= ENV['DB_HOST'] %>
   database: <%= ENV['DB_NAME'] %>
   username: <%= ENV['DB_USER_NAME'] %>
