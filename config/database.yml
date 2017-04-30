@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: vinay
-  password: drago
+  username: <%= ENV['DB_USER_NAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
   host: localhost
 
 development:
@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
-  database: accounts_production
-  username: accounts
-  password: <%= ENV['ACCOUNTS_DATABASE_PASSWORD'] %>
+
+  host: <%= ENV['DB_HOST'] %>
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USER_NAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
